@@ -1,0 +1,27 @@
+<button (click)="goRoot()">Go to list</button>
+<form *ngIf="productToUpdate">
+  <button (click)="sendUpdateProductReq()">Update product</button>
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="productToUpdate.name"
+    placeholder="Name"
+  />
+  <input
+    type="number"
+    name="price"
+    [(ngModel)]="productToUpdate.price"
+    placeholder="Price"
+  />
+  <input
+    type="text"
+    name="descriptionShort"
+    [(ngModel)]="productToUpdate.descriptionShort"
+    placeholder="DescriptionShort"
+  />
+  <textarea
+    name="descriptionLong"
+    [(ngModel)]="productToUpdate.descriptionLong"
+    placeholder="DescriptionLong"
+  ></textarea>
+</form>

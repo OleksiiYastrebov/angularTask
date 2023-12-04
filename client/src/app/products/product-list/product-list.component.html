@@ -1,0 +1,14 @@
+<button (click)="navigateToCreate()">Create product</button>
+<ul>
+  <li *ngFor="let product of products$ | async">
+    <div class="dataWrapper" (click)="navigateToProduct(product.id)">
+      <p>
+        {{ product.name }}
+      </p>
+      <p>Price: {{ product.price }}$</p>
+      <p>{{ product.descriptionShort }}</p>
+    </div>
+    <button (click)="navigateToEdit(product.id)">Edit product</button>
+    <button (click)="sendDeleteProductReq(product.id)">Delete product</button>
+  </li>
+</ul>
