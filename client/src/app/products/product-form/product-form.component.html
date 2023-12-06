@@ -1,29 +1,89 @@
-<button (click)="goRoot()">Back</button>
-<div class="product-form">
-  <form>
+<form #productForm="ngForm">
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="newProduct.name"
+    placeholder="Name"
+    required
+  />
+  <div
+    *ngIf="
+      productForm.controls['name'].invalid &&
+      (productForm.controls['name'].dirty ||
+        productForm.controls['name'].touched)
+    "
+    class="error"
+  >
+    Name is required
+  </div>
+
+  <input
+    type="number"
+    name="price"
+    [(ngModel)]="newProduct.price"
+    (input)="checkPrice($event)"
+    placeholder="Price"
+    required
+  />
+  <div
+    *ngIf="
+      (productForm.controls['price'].invalid &&
+        (productForm.controls['price'].dirty ||
+          productForm.controls['price'].touched)) ||
+      !isPriceAcceptable
+    "
+    class="error"
+  >
+    Price is required and must be greater than 0
+  </div>
+
+  <input
+    type="text"
+    name="descriptionShort"
+    [(ngModel)]="newProduct.descriptionShort"
+    placeholder="Short Description"
+    required
+  />
+  <div
+    *ngIf="
+      productForm.controls['descriptionShort'].invalid &&
+      (productForm.controls['descriptionShort'].dirty ||
+        productForm.controls['descriptionShort'].touched)
+    "
+    class="error"
+  >
+    Description is required
+  </div>
+
+  <textarea
+    name="descriptionLong"
+    [(ngModel)]="newProduct.descriptionLong"
+    placeholder="Long Description"
+    required
+  ></textarea>
+  <div
+    *ngIf="
+      productForm.controls['descriptionLong'].invalid &&
+      (productForm.controls['descriptionLong'].dirty ||
+        productForm.controls['descriptionLong'].touched)
+    "
+    class="error"
+  >
+    Description is required
+  </div>
+  <div *ngFor="let tag of tags">
     <input
-      type="text"
-      name="name"
-      [(ngModel)]="newProduct.name"
-      placeholder="Name"
+      type="checkbox"
+      [id]="'tag' + tag.id"
+      [name]="tag.name"
+      [value]="tag.id"
+      (change)="updateSelectedTags(tag.id, $event)"
+      placeholder="Tags"
     />
-    <input
-      type="number"
-      name="price"
-      [(ngModel)]="newProduct.price"
-      placeholder="Price"
-    />
-    <input
-      type="text"
-      name="descriptionShort"
-      [(ngModel)]="newProduct.descriptionShort"
-      placeholder="DescriptionShort"
-    />
-    <textarea
-      name="descriptionLong"
-      [(ngModel)]="newProduct.descriptionLong"
-      placeholder="DescriptionLong"
-    ></textarea>
-    <button (click)="addProduct()">Add Product</button>
-  </form>
-</div>
+    <label [for]="'tag' + tag.id">{{ tag.name }}</label>
+  </div>
+
+  <button (click)="addProduct()" [disabled]="productForm.invalid">
+    Add Product
+  </button>
+</form>

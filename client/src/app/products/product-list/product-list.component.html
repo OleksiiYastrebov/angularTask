@@ -1,12 +1,35 @@
 <button (click)="navigateToCreate()">Create product</button>
+<button (click)="navigateToTags()">Go to tags</button>
+
+<div *ngFor="let tag of tags">
+  <input
+    type="checkbox"
+    [id]="'tag' + tag.id"
+    [name]="tag.name"
+    [value]="tag.id"
+    (change)="updateSelectedTags(tag.id, $event)"
+    placeholder="Tags"
+  />
+  <label [for]="'tag' + tag.id">{{ tag.name }}</label>
+</div>
+<button (click)="filterProducts()">Filter by tags</button>
+<button (click)="removeFilter()">Remove filter</button>
 <ul>
-  <li *ngFor="let product of products$ | async">
+  <li *ngFor="let product of productsToList">
     <div class="dataWrapper" (click)="navigateToProduct(product.id)">
       <p>
         {{ product.name }}
       </p>
       <p>Price: {{ product.price }}$</p>
       <p>{{ product.descriptionShort }}</p>
+      <ul>
+        <li *ngFor="let tagId of product.tags">
+          <span
+            [style.background]="findTagColor(tagId) ? findTagColor(tagId) : ''"
+            >{{ findTagName(tagId) }}</span
+          >
+        </li>
+      </ul>
     </div>
     <button (click)="navigateToEdit(product.id)">Edit product</button>
     <button (click)="sendDeleteProductReq(product.id)">Delete product</button>

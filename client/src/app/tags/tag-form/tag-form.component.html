@@ -1,7 +1,13 @@
 <button (click)="navToTagList()">Back</button>
 
 <form>
-  <input type="text" name="name" [(ngModel)]="newTag.name" placeholder="Name" />
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="newTag.name"
+    placeholder="Name"
+    required
+  />
   <input
     type="color"
     name="color"
