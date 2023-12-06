@@ -18,7 +18,7 @@ import { ITag } from '../../tags/tag.model';
   providers: [ProductsApiService, HttpClientModule, TagsApiService],
 })
 export class ProductFormComponent implements OnInit {
-  public newProduct: IProduct = new Product(0, '', 1, '', '', []);
+  public newProduct: IProduct = new Product(0, '', 0, '', '', []);
   public tags: ITag[] = [];
   public selectedTags: number[] = [];
   public isPriceAcceptable = false;
