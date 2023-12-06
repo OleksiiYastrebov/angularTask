@@ -4,7 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import fs from 'fs/promises';
 
-const data = JSON.parse(await fs.readFile(path.resolve('./server/data.json'), 'utf-8'));
+const data = JSON.parse(await fs.readFile(path.resolve('./data.json'), 'utf-8'));
 
 const server = express();
 
