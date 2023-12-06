@@ -1,0 +1,15 @@
+<form *ngIf="updatedTag">
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="updatedTag.name"
+    placeholder="Name"
+  />
+  <input
+    type="color"
+    name="color"
+    [(ngModel)]="updatedTag.color"
+    placeholder="#ffffff"
+  />
+  <button (click)="sendPutReq(updatedTag.id!)">Confirm edit</button>
+</form>

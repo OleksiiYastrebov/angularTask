@@ -1,0 +1,18 @@
+<button (click)="navToTagList()">Back</button>
+
+<form>
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="newTag.name"
+    placeholder="Name"
+    required
+  />
+  <input
+    type="color"
+    name="color"
+    [(ngModel)]="newTag.color"
+    placeholder="#ffffff"
+  />
+  <button (click)="sendPostReq()">Add tag</button>
+</form>
