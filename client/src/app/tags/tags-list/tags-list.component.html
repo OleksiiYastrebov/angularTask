@@ -1,0 +1,14 @@
+<button (click)="navigateToCreate()">Create tag</button>
+<button (click)="goRoot()">Go back</button>
+
+<ul *ngIf="tags">
+  <li *ngFor="let tag of tags">
+    <p>{{ tag.name }}</p>
+    <p>
+      Color:
+      <span [style.background]="tag.color">{{ tag.color }}</span>
+    </p>
+    <button (click)="navigateToEdit(tag.id)">Edit tag</button>
+    <button (click)="deleteTag(tag.id)">Delete tag</button>
+  </li>
+</ul>
