@@ -1,28 +1,30 @@
 <button (click)="navigateToCreate()">Create product</button>
 <button (click)="navigateToTags()">Go to tags</button>
 
-<div *ngFor="let tag of tags">
-  <input
-    type="checkbox"
-    [id]="'tag' + tag.id"
-    [name]="tag.name"
-    [value]="tag.id"
-    (change)="updateSelectedTags(tag.id, $event)"
-    placeholder="Tags"
-  />
-  <label [for]="'tag' + tag.id">{{ tag.name }}</label>
+<div class="input-container flex">
+  <div class="input-block" *ngFor="let tag of tags">
+    <input
+      type="checkbox"
+      [id]="'tag' + tag.id"
+      [name]="tag.name"
+      [value]="tag.id"
+      (change)="updateSelectedTags(tag.id, $event)"
+      placeholder="Tags"
+    />
+    <label [for]="'tag' + tag.id">{{ tag.name }}</label>
+  </div>
 </div>
 <button (click)="filterProducts()">Filter by tags</button>
 <button (click)="removeFilter()">Remove filter</button>
-<ul>
-  <li *ngFor="let product of productsToList">
+<ul class="flex product-ul">
+  <li *ngFor="let product of productsToList" class="product-li">
     <div class="dataWrapper" (click)="navigateToProduct(product.id)">
       <p>
         {{ product.name }}
       </p>
       <p>Price: {{ product.price }}$</p>
       <p>{{ product.descriptionShort }}</p>
-      <ul>
+      <ul class="tags-ul flex">
         <li *ngFor="let tagId of product.tags">
           <span
             [style.background]="findTagColor(tagId) ? findTagColor(tagId) : ''"

@@ -1,6 +1,6 @@
 <button (click)="goBack()">Back</button>
 
-<div *ngIf="product">
+<div class="product-detail-container" *ngIf="product">
   <div class="product-detail" *ngIf="product">
     <h2>{{ product.name }}</h2>
     <p>Price: {{ product.price }}</p>

@@ -2,7 +2,7 @@
    "products": {
       "1": {
          "id": 1,
-         "name": "pizza 1",
+         "name": "Product 1",
          "price": "1",
          "descriptionShort": "some short description",
          "descriptionLong": "very very long description for product which also contains number 1",
@@ -10,7 +10,7 @@
       },
       "2": {
          "id": 2,
-         "name": "pizza 2",
+         "name": "Product 2",
          "price": "2",
          "descriptionShort": "some short description",
          "descriptionLong": "very very long description for product which also contains number 2",
@@ -18,7 +18,7 @@
       },
       "3": {
          "id": 3,
-         "name": "pizza 3",
+         "name": "Product 3",
          "price": "3",
          "descriptionShort": "some short description",
          "descriptionLong": "very very long description for product which also contains number 3",
@@ -26,7 +26,7 @@
       },
       "4": {
          "id": 4,
-         "name": "pizza 4",
+         "name": "Product 4",
          "price": "4",
          "descriptionShort": "some short description",
          "descriptionLong": "very very long description for product which also contains number 4",
@@ -34,7 +34,7 @@
       },
       "5": {
          "id": 5,
-         "name": "pizza 5",
+         "name": "Product 5",
          "price": "5",
          "descriptionShort": "some short description",
          "descriptionLong": "very very long description for product which also contains number 5",

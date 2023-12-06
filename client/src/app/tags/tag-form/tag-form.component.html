@@ -1,18 +1,26 @@
-<button (click)="navToTagList()">Back</button>
+<button class="back-button" (click)="navToTagList()">Back</button>
 
-<form>
-  <input
-    type="text"
-    name="name"
-    [(ngModel)]="newTag.name"
-    placeholder="Name"
-    required
-  />
-  <input
-    type="color"
-    name="color"
-    [(ngModel)]="newTag.color"
-    placeholder="#ffffff"
-  />
-  <button (click)="sendPostReq()">Add tag</button>
+<form class="tag-form">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="newTag.name"
+      placeholder="Enter tag name"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="color">Tag Color:</label>
+    <input
+      type="color"
+      name="color"
+      [(ngModel)]="newTag.color"
+      placeholder="#ffffff"
+    />
+  </div>
+
+  <button class="add-tag-button" (click)="sendPostReq()">Add Tag</button>
 </form>

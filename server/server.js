@@ -41,8 +41,9 @@ server.get('/tag/:id', (req, res) => {
    const id = req.params.id;
    if (id in data.tags) {
       res.send(data.tags[id]);
+   } else {
+      res.sendStatus(404);
    }
-   res.sendStatus(404);
 });
 
 server.post('/tag', (req, res) => {

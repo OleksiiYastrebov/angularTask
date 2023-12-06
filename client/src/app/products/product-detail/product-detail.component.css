@@ -1,0 +1,26 @@
+h2 {
+  margin: 0;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 5px;
+}
+
+.product-detail-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: rgb(190, 193, 195);
+  padding: 10px 0;
+}
+
+.product-detail > h2,
+.product-detail > p:nth-child(3),
+.product-detail > p:nth-child(4) {
+  text-transform: capitalize;
+}
+
+.product-detail {
+  padding-left: 30px;
+}

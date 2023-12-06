@@ -1,8 +1,8 @@
 <button (click)="navigateToCreate()">Create tag</button>
 <button (click)="goRoot()">Go back</button>
 
-<ul *ngIf="tags">
-  <li *ngFor="let tag of tags">
+<ul class="flex" *ngIf="tags">
+  <li class="tag-container" *ngFor="let tag of tags">
     <p>{{ tag.name }}</p>
     <p>
       Color:

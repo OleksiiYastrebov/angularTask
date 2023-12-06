@@ -1,15 +1,19 @@
-<form *ngIf="updatedTag">
-  <input
-    type="text"
-    name="name"
-    [(ngModel)]="updatedTag.name"
-    placeholder="Name"
-  />
-  <input
-    type="color"
-    name="color"
-    [(ngModel)]="updatedTag.color"
-    placeholder="#ffffff"
-  />
+<form class="tag-form" *ngIf="updatedTag">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="updatedTag.name"
+      placeholder="Name"
+    />
+    <label for="color">Tag Color:</label>
+    <input
+      type="color"
+      name="color"
+      [(ngModel)]="updatedTag.color"
+      placeholder="#ffffff"
+    />
+  </div>
   <button (click)="sendPutReq(updatedTag.id!)">Confirm edit</button>
 </form>

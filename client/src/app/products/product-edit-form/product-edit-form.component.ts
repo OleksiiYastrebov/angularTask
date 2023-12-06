@@ -22,7 +22,7 @@ export class ProductEditFormComponent implements OnInit {
   public productToUpdate: IProduct = new Product(0, '', 1, '', '', []);
   public id: number | undefined;
   public selectedTags: number[] = [];
-  public isPriceAcceptable = false;
+  public isPriceAcceptable = true;
 
   constructor(
     private tagsApiService: TagsApiService,

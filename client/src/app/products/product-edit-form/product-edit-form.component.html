@@ -1,53 +1,57 @@
 <button (click)="goRoot()">Go to list</button>
 <form #productForm="ngForm" *ngIf="productToUpdate">
-  <button (click)="sendUpdateProductReq()">Update product</button>
-  <input
-    type="text"
-    name="name"
-    [(ngModel)]="productToUpdate.name"
-    placeholder="Name"
-  />
-  <input
-    type="number"
-    name="price"
-    [(ngModel)]="productToUpdate.price"
-    (input)="checkPrice($event)"
-    placeholder="Price"
-  />
-  <div
-    *ngIf="
-      (productForm.controls['price'].invalid &&
-        (productForm.controls['price'].dirty ||
-          productForm.controls['price'].touched)) ||
-      !isPriceAcceptable
-    "
-    class="error"
-  >
-    Price is must be greater than 0
-  </div>
-
-  <input
-    type="text"
-    name="descriptionShort"
-    [(ngModel)]="productToUpdate.descriptionShort"
-    (input)="checkPrice($event)"
-    placeholder="DescriptionShort"
-  />
-  <textarea
-    name="descriptionLong"
-    [(ngModel)]="productToUpdate.descriptionLong"
-    placeholder="DescriptionLong"
-  ></textarea>
-
-  <div *ngFor="let tag of tags">
+  <div class="input-wrapper">
     <input
-      type="checkbox"
-      [id]="'tag' + tag.id"
-      [name]="tag.name"
-      [value]="tag.id"
-      (change)="updateSelectedTags(tag.id, $event)"
-      placeholder="Tags"
+      type="text"
+      name="name"
+      [(ngModel)]="productToUpdate.name"
+      placeholder="Name"
     />
-    <label [for]="'tag' + tag.id">{{ tag.name }}</label>
+    <input
+      type="number"
+      name="price"
+      [(ngModel)]="productToUpdate.price"
+      (input)="checkPrice($event)"
+      placeholder="Price"
+    />
+    <div
+      *ngIf="
+        (productForm.controls['price'].invalid &&
+          (productForm.controls['price'].dirty ||
+            productForm.controls['price'].touched)) ||
+        !isPriceAcceptable
+      "
+      class="error"
+    >
+      Price is must be greater than 0
+    </div>
+
+    <input
+      type="text"
+      name="descriptionShort"
+      [(ngModel)]="productToUpdate.descriptionShort"
+      (input)="checkPrice($event)"
+      placeholder="DescriptionShort"
+    />
+    <textarea
+      name="descriptionLong"
+      [(ngModel)]="productToUpdate.descriptionLong"
+      placeholder="DescriptionLong"
+    ></textarea>
+
+    <div class="flex tag-wrapper">
+      <div class="tag-elem" *ngFor="let tag of tags">
+        <input
+          type="checkbox"
+          [id]="'tag' + tag.id"
+          [name]="tag.name"
+          [value]="tag.id"
+          (change)="updateSelectedTags(tag.id, $event)"
+          placeholder="Tags"
+        />
+        <label [for]="'tag' + tag.id">{{ tag.name }}</label>
+      </div>
+    </div>
+    <button (click)="sendUpdateProductReq()" [disabled]="!isPriceAcceptable">Update product</button>
   </div>
 </form>
